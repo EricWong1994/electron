@@ -35,16 +35,16 @@ ipcRenderer.on('msg', (event, message) => {
   console.log(message)
 })
 
-contextBridge.exposeInMainWorld('api', {
-  upload: async (callback) => {
-    const file = await ipcRenderer.invoke('selectFile')
-    callback(file)
-  },
-})
-
 // contextBridge.exposeInMainWorld('api', {
-//   changeTitle: (newTitle) => {
-//     ipcRenderer.send('updateTitle', newTitle)
+//   upload: async (callback) => {
+//     const file = await ipcRenderer.invoke('selectFile')
+//     callback(file)
 //   },
 // })
+
+contextBridge.exposeInMainWorld('api', {
+  changeTitle: (newTitle) => {
+    ipcRenderer.send('updateTitle', newTitle)
+  },
+})
 // ipcRenderer.send('saveFile')
