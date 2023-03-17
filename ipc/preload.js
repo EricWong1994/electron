@@ -25,11 +25,11 @@ const { contextBridge, ipcRenderer } = require('electron')
 //   },
 // })
 
-// contextBridge.exposeInMainWorld('api', {
-//   hd: () => {
-//     ipcRenderer.send('saveFile')
-//   },
-// })
+contextBridge.exposeInMainWorld('api', {
+  hd: () => {
+    ipcRenderer.send('saveFile')
+  },
+})
 
 // ipcRenderer.on('msg', (event, message) => {
 //   console.log(message)
@@ -42,9 +42,9 @@ const { contextBridge, ipcRenderer } = require('electron')
 //   },
 // })
 
-contextBridge.exposeInMainWorld('api', {
-  changeTitle: (newTitle) => {
-    ipcRenderer.send('updateTitle', newTitle)
-  },
-})
-ipcRenderer.send('saveFile')
+// contextBridge.exposeInMainWorld('api', {
+//   changeTitle: (newTitle) => {
+//     ipcRenderer.send('updateTitle', newTitle)
+//   },
+// })
+// ipcRenderer.send('saveFile')

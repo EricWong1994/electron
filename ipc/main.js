@@ -5,13 +5,13 @@ const path = require('path')
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 600,
-    height: 300,
-    x: 200,
-    y: 1200,
-    alwaysOnTop: true,
+    height: 600,
+    x: -1200,
+    y: 700,
+    // alwaysOnTop: true,
     webPreferences: {
       preload: path.resolve(__dirname, 'preload.js'),
-      nodeIntegration: true
+      // nodeIntegration: true
     },
   })
 
@@ -20,13 +20,13 @@ const createWindow = () => {
 
   // createMenu(mainWindow)
 }
-
+console.log('main')
 app.whenReady().then(() => {
   createWindow()
 })
 
 ipcMain.on('saveFile', (event) => {
-  // console.log('saveFile@@@@@@@@@@@@@@@@@@@@')
+  console.log('saveFile@@@@@@@@@@@@@@@@@@@@')
   // BrowserWindow.fromWebContents(event.sender).send('msg', '已经收到通知')
 })
 
@@ -34,7 +34,7 @@ ipcMain.on('saveFile', (event) => {
 //   const { filePaths } = await dialog.showOpenDialog({})
 //   return filePaths[0]
 // })
+ipcMain.on('updateTitle', (event, value) => {
+  BrowserWindow.fromWebContents(event.sender).title = value
+})
 
-// ipcMain.on('updateTitle', (event, value) => {
-//   BrowserWindow.fromWebContents(event.sender).title = value
-// })

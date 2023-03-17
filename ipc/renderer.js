@@ -1,9 +1,9 @@
-// window.addEventListener('DOMContentLoaded', () => {
-//   const btn = document.querySelector('#btn')
-//   btn.addEventListener('click', () => {
-//     window.api.hd()
-//   })
-// })
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('#btn')
+  btn.addEventListener('click', () => {
+    window.api.hd()
+  })
+})
 
 // const fs = require('fs')
 
@@ -20,11 +20,12 @@
 //     })
 //   })
 // })
+// window.addEventListener('DOMContentLoaded', () => {
 
-window.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelector('#btn')
-  btn.addEventListener('click', () => {
-    const title = document.querySelector('input').value
-    window.api.changeTitle(title)
-  })
-})
+//   const btn = document.querySelector('#btn')
+//   btn.addEventListener('click', () => {
+//     const title = document.querySelector('input').value
+//     console.log('title: ', title);
+//     window.api.changeTitle(title)
+//   })
+// })
