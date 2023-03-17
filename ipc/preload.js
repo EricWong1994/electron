@@ -25,22 +25,22 @@ const { contextBridge, ipcRenderer } = require('electron')
 //   },
 // })
 
-contextBridge.exposeInMainWorld('api', {
-  hd: () => {
-    ipcRenderer.send('saveFile')
-  },
-})
+// contextBridge.exposeInMainWorld('api', {
+//   hd: () => {
+//     ipcRenderer.send('saveFile')
+//   },
+// })
 
 ipcRenderer.on('msg', (event, message) => {
   console.log(message)
 })
 
-// contextBridge.exposeInMainWorld('api', {
-//   upload: async (callback) => {
-//     const file = await ipcRenderer.invoke('selectFile')
-//     callback(file)
-//   },
-// })
+contextBridge.exposeInMainWorld('api', {
+  upload: async (callback) => {
+    const file = await ipcRenderer.invoke('selectFile')
+    callback(file)
+  },
+})
 
 // contextBridge.exposeInMainWorld('api', {
 //   changeTitle: (newTitle) => {

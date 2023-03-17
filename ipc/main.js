@@ -4,7 +4,7 @@ const path = require('path')
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 600,
+    width: 900,
     height: 600,
     x: -1200,
     y: 700,
@@ -30,10 +30,11 @@ ipcMain.on('saveFile', (event) => {
   BrowserWindow.fromWebContents(event.sender).send('msg', '已经收到通知')
 })
 
-// ipcMain.handle('selectFile', async (event) => {
-//   const { filePaths } = await dialog.showOpenDialog({})
-//   return filePaths[0]
-// })
+ipcMain.handle('selectFile', async (event) => {
+  const { filePaths } = await dialog.showOpenDialog({})
+  return filePaths[0]
+})
+
 ipcMain.on('updateTitle', (event, value) => {
   BrowserWindow.fromWebContents(event.sender).title = value
 })

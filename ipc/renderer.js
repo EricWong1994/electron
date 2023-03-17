@@ -1,9 +1,9 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelector('#btn')
-  btn.addEventListener('click', () => {
-    window.api.hd()
-  })
-})
+// window.addEventListener('DOMContentLoaded', () => {
+//   const btn = document.querySelector('#btn')
+//   btn.addEventListener('click', () => {
+//     window.api.hd()
+//   })
+// })
 console.log(window.api)
 
 // window.api.counter((value) => {
@@ -11,14 +11,14 @@ console.log(window.api)
 //   el.innerHTML = Number(el.textContent) + value
 // })
 
-// window.addEventListener('DOMContentLoaded', () => {
-//   const btn = document.querySelector('#btn')
-//   btn.addEventListener('click', () => {
-//     window.api.upload((file) => {
-//       document.querySelector('input').value = file
-//     })
-//   })
-// })
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('#btn')
+  btn.addEventListener('click', () => {
+    window.api.upload((file) => {
+      document.querySelector('input').value = file
+    })
+  })
+})
 // window.addEventListener('DOMContentLoaded', () => {
 
 //   const btn = document.querySelector('#btn')
