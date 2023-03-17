@@ -31,9 +31,9 @@ contextBridge.exposeInMainWorld('api', {
   },
 })
 
-// ipcRenderer.on('msg', (event, message) => {
-//   console.log(message)
-// })
+ipcRenderer.on('msg', (event, message) => {
+  console.log(message)
+})
 
 // contextBridge.exposeInMainWorld('api', {
 //   upload: async (callback) => {

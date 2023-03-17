@@ -4,8 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.api.hd()
   })
 })
-
-// const fs = require('fs')
+console.log(window.api)
 
 // window.api.counter((value) => {
 //   const el = document.querySelector('#counter')

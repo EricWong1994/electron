@@ -8,7 +8,7 @@ const createWindow = () => {
     height: 600,
     x: -1200,
     y: 700,
-    // alwaysOnTop: true,
+    alwaysOnTop: true,
     webPreferences: {
       preload: path.resolve(__dirname, 'preload.js'),
       // nodeIntegration: true
@@ -18,7 +18,7 @@ const createWindow = () => {
   mainWindow.webContents.openDevTools()
   mainWindow.loadFile(path.resolve(__dirname, 'index.html'))
 
-  // createMenu(mainWindow)
+  createMenu(mainWindow)
 }
 console.log('main')
 app.whenReady().then(() => {
@@ -27,7 +27,7 @@ app.whenReady().then(() => {
 
 ipcMain.on('saveFile', (event) => {
   console.log('saveFile@@@@@@@@@@@@@@@@@@@@')
-  // BrowserWindow.fromWebContents(event.sender).send('msg', '已经收到通知')
+  BrowserWindow.fromWebContents(event.sender).send('msg', '已经收到通知')
 })
 
 // ipcMain.handle('selectFile', async (event) => {
