@@ -6,12 +6,15 @@ const { contextBridge, ipcRenderer, shell } = require('electron')
 
 // contextBridge只能在contextIsolation为开启的情况使用，否则报错
 contextBridge.exposeInMainWorld('api', {
-  toMain: () => {
-    ipcRenderer.send('mainEvent')
+  // toMain: () => {
+  //   ipcRenderer.send('mainEvent')
+  // }
+  changeWidthPosition: (options) => {
+    ipcRenderer.send('setWindowPosition', options)
   }
 })
 
-window.hd = 'hhhhh'
+// window.hd = 'hhhhh'
 
 // window.api = {
 //   toMain: () => {
