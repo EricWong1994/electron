@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import './ipcMain'
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
@@ -17,6 +18,7 @@ function createWindow(): void {
     y: 100,
     show: false,
     alwaysOnTop: true,
+    transparent: true,
     autoHideMenuBar: true,
     frame: false, // 让窗口边框隐藏
     ...(process.platform === 'linux' ? { icon } : {}),
