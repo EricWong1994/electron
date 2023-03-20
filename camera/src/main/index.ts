@@ -4,19 +4,29 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    // width: 900,
+    width: 300,
+    height: 300,
+    // height: 670,
+    minHeight: 250,
+    minWidth: 250,
+    maxHeight: 500,
+    maxWidth: 500,
+    x: -1200,
+    y: 100,
     show: false,
+    alwaysOnTop: true,
     autoHideMenuBar: true,
+    frame: false, // 让窗口边框隐藏
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
     }
   })
-
+  mainWindow.setAspectRatio(1)
+  mainWindow.webContents.openDevTools()
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
